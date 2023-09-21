@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+input,
+textarea {
+  @apply w-full border border-slate-900 rounded-sm my-1 bg-transparent outline-none py-1 px-2 text-sm font-light;
+}
+
+html {
+  font-family: Poppins, sans-serif;
+  @apply dark:bg-slate-700 text-white;
+}
