@@ -9,7 +9,7 @@ function Task({ title, description, id, inputRef }) {
   const dispatch = useDispatch()
   return (
     <div className="p-1 my-2 bg-slate-600 text-white rounded-sm relative grid grid-cols-[2fr_0.5fr]">
-      <h1 className="font-semibold text-xl col-span-2">{title}</h1>
+      <h1 className="font-semibold text-xl col-span-2 break-all">{title}</h1>
       <div>
         <button
           onClick={() => setReadMore(!readMore)}
@@ -19,7 +19,9 @@ function Task({ title, description, id, inputRef }) {
           {!readMore ? <Down /> : <Up />}
         </button>
         {readMore && (
-          <div className="font-light text-xs text-gray-300">{description}</div>
+          <div className="font-light text-xs text-gray-300 break-all">
+            {description}
+          </div>
         )}
       </div>
       <div className="flex justify-end items-end">
