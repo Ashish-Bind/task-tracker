@@ -6,10 +6,14 @@
 
 input,
 textarea {
-  @apply w-full border border-slate-900 rounded-sm my-1 bg-transparent outline-none py-1 px-2 text-sm font-light;
+  @apply w-full border border-slate-600 rounded-md my-1 bg-slate-700 outline-none py-1 px-2 text-lg font-light;
 }
 
 html {
   font-family: Poppins, sans-serif;
-  @apply dark:bg-slate-700 text-white;
+  @apply dark:bg-slate-900 text-white;
+}
+
+svg {
+  @apply w-6 h-6;
 }

@@ -6,7 +6,7 @@ export function Cancel() {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="w-6 h-6"
+      className="w-7 h-7"
     >
       <path
         strokeLinecap="round"
@@ -25,7 +25,7 @@ export function Tick() {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="w-6 h-6"
+      className="w-7 h-7"
     >
       <path
         strokeLinecap="round"
@@ -44,7 +44,7 @@ export function Delete() {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="w-5 h-5 hover:text-red-600"
+      className="w-8 h-8 hover:text-red-600"
     >
       <path
         strokeLinecap="round"
@@ -63,7 +63,7 @@ export function Edit() {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="w-5 h-5 hover:text-green-400"
+      className="w-8 h-8 hover:text-green-400"
     >
       <path
         strokeLinecap="round"
