@@ -9,19 +9,19 @@ function Task({ title, description, id, inputRef, status, createdAt }) {
   const dispatch = useDispatch()
   return (
     <div
-      className={`p-3 my-2  text-white rounded-md relative grid grid-cols-[2fr_0.5fr] ${
+      className={`p-3 my-2  text-white rounded-md  grid grid-cols-[2fr_0.5fr] gap-x-2 ${
         status ? 'bg-slate-500' : 'bg-slate-600'
       }`}
     >
       <div className="flex col-span-2 justify-between">
         <h1
           className={`font-semibold text-2xl break-all ${
-            status && 'line-through'
+            status && 'line-through text-gray-400'
           }`}
         >
           {title}
         </h1>
-        <p>
+        <p className="flex gap-2">
           Status:{' '}
           {!status ? (
             <span className="text-red-600 font-bold text-lg"> O</span>
