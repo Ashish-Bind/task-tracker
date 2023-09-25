@@ -7,6 +7,8 @@ const initialState = {
   filteredTasks: [],
   editId: '',
   filterStatus: false,
+  sortItems: 'none',
+  sortStatus: false,
 }
 
 const taskSlice = createSlice({
@@ -58,6 +60,29 @@ const taskSlice = createSlice({
       state.filteredTasks = state.tasks.filter((task) => task.status === false)
       state.filterStatus = true
     },
+    setSort: (state, { payload }) => {
+      state.sortItems = payload
+    },
+    sort: (state) => {
+      switch (state.sortItems) {
+        case 'ascending': {
+          state.filteredTasks.sort((a, b) => {
+            return new Date(a.createdAt) - new Date(b.createdAt)
+          })
+          break
+        }
+
+        case 'descending': {
+          state.filteredTasks.sort((a, b) => {
+            return new Date(b.createdAt) - new Date(a.createdAt)
+          })
+          break
+        }
+
+        default:
+          state.filteredTasks = state.tasks
+      }
+    },
     clearFilter: (state) => {
       state.filteredTasks = state.tasks
       state.filterStatus = false
@@ -74,5 +99,7 @@ export const {
   clearFilter,
   setFilteredTasks,
   filterNotCompleted,
+  setSort,
+  sort,
 } = taskSlice.actions
 export default taskSlice.reducer
