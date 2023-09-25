@@ -6,6 +6,7 @@ import {
   clearFilter,
   filterCompleted,
   filterNotCompleted,
+  setSort,
 } from '../reducers/taskReducer'
 
 function TaskInput({ inputRef }) {
@@ -69,9 +70,14 @@ function TaskInput({ inputRef }) {
             Clear Filter
           </button>
         )}
-        <select name="" id="" className="bg-slate-700 py-2 px-4 rounded-lg">
-          <option value="">Sort By Created At</option>
-          <option value="">Sort By</option>
+        <select
+          name="sortItems"
+          className="bg-slate-700 py-2 px-4 rounded-lg"
+          onChange={(e) => dispatch(setSort(e.target.value))}
+        >
+          <option value="none">None</option>
+          <option value="ascending">Sort by Created at Ascending</option>
+          <option value="descending">Sort by Created at Descending</option>
         </select>
       </div>
     </div>
