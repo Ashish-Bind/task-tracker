@@ -4,7 +4,7 @@ import { deleteTask, setEdit, toggleStatus } from '../reducers/taskReducer'
 import { Delete, Edit, Up, Down, Tick, Cancel } from '../icons/Icons'
 import { useState } from 'react'
 
-function Task({ title, description, id, inputRef, status, createdAt }) {
+function Task({ title, description, id, status, createdAt }) {
   const [readMore, setReadMore] = useState(false)
   const dispatch = useDispatch()
   return (
@@ -59,7 +59,7 @@ function Task({ title, description, id, inputRef, status, createdAt }) {
         <button
           onClick={() => {
             dispatch(setEdit(id))
-            inputRef.current.focus()
+            document.querySelector('#title-input').focus()
           }}
         >
           <Edit />

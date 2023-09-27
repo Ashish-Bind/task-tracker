@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useState } from 'react'
+import { useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {
   addTask,
@@ -9,9 +9,9 @@ import {
   setSort,
 } from '../reducers/taskReducer'
 
-function TaskInput({ inputRef }) {
-  const [taskTitle, setTaskTitle] = useState('')
-  const [taskDescription, setTaskDescription] = useState('')
+function TaskInput() {
+  const titleRef = useRef()
+  const descriptionRef = useRef()
 
   const { editId, filterStatus } = useSelector((state) => state)
   const dispatch = useDispatch()
@@ -19,17 +19,15 @@ function TaskInput({ inputRef }) {
   return (
     <div>
       <input
+        id="title-input"
         type="text"
-        value={taskTitle}
-        onChange={(e) => setTaskTitle(e.target.value)}
         placeholder={editId ? 'Edit Title..' : 'Enter task title ...'}
-        ref={inputRef}
+        ref={titleRef}
       />
       <br />
       <textarea
         type="text"
-        value={taskDescription}
-        onChange={(e) => setTaskDescription(e.target.value)}
+        ref={descriptionRef}
         placeholder={
           editId ? 'Edit description..' : 'Enter task description ...'
         }
@@ -40,10 +38,13 @@ function TaskInput({ inputRef }) {
         <button
           onClick={() => {
             dispatch(
-              addTask({ title: taskTitle, description: taskDescription })
+              addTask({
+                title: titleRef.current.value,
+                description: descriptionRef.current.value,
+              })
             )
-            setTaskDescription('')
-            setTaskTitle('')
+            titleRef.current.value = ''
+            descriptionRef.current.value = ''
           }}
           className="border-none bg-slate-600 py-2 px-4 rounded-md text-white font-medium text-lg"
         >

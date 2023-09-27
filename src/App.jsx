@@ -1,12 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux'
 import TaskInput from './components/TaskInput'
 import TaskList from './components/TaskList'
-import { useEffect, useRef } from 'react'
+import { useEffect } from 'react'
 import { setFilteredTasks, sort } from './reducers/taskReducer'
 
 function App() {
-  const inputRef = useRef()
-
   const { tasks, sortItems } = useSelector((state) => state)
   const dispatch = useDispatch()
 
@@ -23,10 +21,10 @@ function App() {
     <div className="lg:px-4 lg:mx-4  px-3 m-1">
       <div>
         <h1 className="font-semibold text-center text-4xl">Task Tracker</h1>
-        <TaskInput inputRef={inputRef} />
+        <TaskInput />
       </div>
       <hr className="my-4" />
-      <TaskList inputRef={inputRef} />
+      <TaskList />
     </div>
   )
 }
