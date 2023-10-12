@@ -7,6 +7,7 @@ import { useState } from 'react'
 function Task({ title, description, id, status, createdAt }) {
   const [readMore, setReadMore] = useState(false)
   const dispatch = useDispatch()
+
   return (
     <div
       className={`p-3 my-2  text-white rounded-md  grid grid-cols-[2fr_0.5fr] gap-x-2 ${
@@ -26,7 +27,7 @@ function Task({ title, description, id, status, createdAt }) {
           {!status ? (
             <span className="text-red-600 font-bold text-lg"> O</span>
           ) : (
-            <span className="text-lime-400 font-bold text-lg"> O</span>
+            <span className="text-lime-400 font-bold text-lg">O</span>
           )}
         </p>
       </div>

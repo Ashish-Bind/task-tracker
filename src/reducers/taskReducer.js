@@ -1,4 +1,5 @@
 import { createSlice, nanoid } from '@reduxjs/toolkit'
+import scheduleTaskNotification from '../helpers/notification'
 
 const date = new Date()
 
@@ -35,6 +36,8 @@ const taskSlice = createSlice({
         }
         state.tasks.push(task)
       }
+
+      scheduleTaskNotification(title)
     },
     deleteTask: (state, { payload }) => {
       state.tasks = state.tasks.filter((task) => {
